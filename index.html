@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BRUSH APPLE | Stay Plugged</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap');
+
+:root{
+  --black:#24201A;
+  --dark:#191612;
+  --purple:#3F2548;
+  --blue:#35369C;
+  --lav:#7C679E;
+  --lime:#C8C793;
+  --white:#F5F3EA;
+  --muted:#AAA59A;
+  --line:rgba(200,199,147,.18);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+.gold{
+  color:var(--lime);
+}
+
+.eyebrow{
+  color:var(--lime);
+  font-size:.67rem;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+
+.title{
+  font-size:clamp(2.3rem,5vw,5rem);
+  line-height:.92;
+  letter-spacing:-.065em;
+}
+
+.sub{
+  max-width:570px;
+  margin-top:18px;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:.9rem;
+}
+
+.section{
+  padding:105px 0;
+}
+
+.btn{
+  min-height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 21px;
+  border-radius:999px;
+  border:1px solid var(--lav);
+  transition:.3s ease;
+  font-size:.75rem;
+  cursor:pointer;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px #35369c33;
+}
+
+.btn-main{
+  background:var(--lime);
+  border-color:var(--lime);
+  color:var(--black);
+  font-weight:700;
+}
+
+.btn-dark{
+  background:#0002;
+  border-color:#fff3;
+}
+
+/* NAV */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  padding:17px 0;
+  transition:.3s;
+}
+
+header.scrolled{
+  background:#24201ad9;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #fff1;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-weight:800;
+  letter-spacing:-.04em;
+}
+
+.brand img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
+
+.brand span{
+  color:var(--lime);
+}
+
+nav{
+  display:flex;
+  gap:28px;
+  color:#c1bdb4;
+  font-size:.76rem;
+}
+
+nav a{
+  transition:.25s;
+}
+
+nav a:hover{
+  color:white;
+}
+
+.menu{
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:1.3rem;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    var(--black)
+    url("assets/phone_hero_background.webp")
+    center/cover no-repeat;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(
+      90deg,
+      #24201A 0%,
+      #24201Ad9 38%,
+      #24201A44 73%,
+      #24201Ab5 100%
+    ),
+    radial-gradient(
+      circle at 72% 48%,
+      #3F254880,
+      transparent 35%
+    );
+}
+
+.hero-content{
+  padding-top:70px;
+  max-width:650px;
+}
+
+.hero-logo{
+  width:min(190px,50vw);
+  height:auto;
+  margin:25px 0;
+  filter:drop-shadow(0 0 22px #c8c79333);
+}
+
+.script{
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  font-size:clamp(4.5rem,12vw,9rem);
+  line-height:.7;
+  letter-spacing:-.09em;
+}
+
+.script span{
+  color:var(--lime);
+}
+
+.hero h1{
+  margin:35px 0 16px;
+  font-size:clamp(1.7rem,4vw,3rem);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+
+.hero p{
+  max-width:530px;
+  color:#cbc7bd;
+  line-height:1.7;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+.hero-meta{
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  margin-top:42px;
+}
+
+.hero-meta strong{
+  display:block;
+  font-size:.82rem;
+}
+
+.hero-meta span{
+  display:block;
+  margin-top:5px;
+  color:#969087;
+  font-size:.64rem;
+}
+
+.glow{
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:0;
+  bottom:-5%;
+  border:1px solid #c8c79322;
+  border-radius:50%;
+}
+
+.glow:after{
+  content:"";
+  position:absolute;
+  inset:50px;
+  border:1px solid #7c679e26;
+  border-radius:50%;
+}
+
+.hero-float{
+  position:absolute;
+  width:95px;
+  aspect-ratio:1;
+  object-fit:cover;
+  border:1px solid #c8c79333;
+  border-radius:20px;
+  opacity:.55;
+  box-shadow:0 25px 60px #090806;
+}
+
+.f1{
+  top:24%;
+  right:4%;
+  transform:rotate(7deg);
+}
+
+.f2{
+  left:2%;
+  bottom:15%;
+  transform:rotate(-7deg);
+}
+
+/* TRUST */
+
+.trust{
+  background:#1C1915;
+  border-block:1px solid var(--line);
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.trust-item{
+  padding:25px 17px;
+  border-right:1px solid var(--line);
+}
+
+.trust-item:last-child{
+  border:0;
+}
+
+.trust-item b{
+  display:block;
+  font-size:.8rem;
+}
+
+.trust-item span{
+  display:block;
+  margin-top:5px;
+  color:#858077;
+  font-size:.65rem;
+}
+
+/* CATALOG */
+
+.catalog-head{
+  margin-bottom:40px;
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:24px;
+}
+
+.filter{
+  padding:9px 15px;
+  border:1px solid #443d34;
+  border-radius:999px;
+  background:#29241e;
+  color:#aaa49a;
+  font-size:.7rem;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.filter:hover,
+.filter.active{
+  background:var(--lime);
+  border-color:var(--lime);
+  color:var(--black);
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.product{
+  overflow:hidden;
+  border:1px solid #3b342b;
+  border-radius:23px;
+  background:linear-gradient(145deg,#302a23,#25211c);
+  transition:.35s;
+}
+
+.product:hover{
+  transform:translateY(-6px);
+  border-color:#c8c7936b;
+  box-shadow:0 25px 60px #0000004d;
+}
+
+.product-img{
+  height:255px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  padding:16px;
+  background:linear-gradient(145deg,#312b25,#211d19);
+}
+
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:.4s;
+}
+
+.product:hover .product-img img{
+  transform:scale(1.05);
+}
+
+.tag{
+  position:absolute;
+  top:12px;
+  left:12px;
+  z-index:2;
+  padding:5px 9px;
+  border:1px solid #443c32;
+  border-radius:99px;
+  background:#191714;
+  color:var(--lime);
+  font-size:.55rem;
+}
+
+.product-body{
+  padding:16px;
+}
+
+.product h3{
+  margin-bottom:5px;
+  font-size:.87rem;
+}
+
+.product p{
+  min-height:30px;
+  color:#888278;
+  font-size:.64rem;
+}
+
+.product-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:15px;
+}
+
+.price{
+  font-size:.68rem;
+  font-weight:700;
+}
+
+.product-btn{
+  min-height:auto;
+  padding:8px 11px;
+  font-size:.6rem;
+}
+
+/* FEATURE */
+
+.feature{
+  background:
+    linear-gradient(
+      135deg,
+      #1c1814,
+      #241b28 52%,
+      #17191f
+    );
+  border-block:1px solid #7c679e2b;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:65px;
+  align-items:center;
+}
+
+.feature-art{
+  min-height:520px;
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  background:#181512;
+}
+
+.feature-art img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.feature-art:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      135deg,
+      #35369c2e,
+      transparent 45%,
+      #c8c7931f
+    );
+}
+
+.points{
+  display:grid;
+  gap:16px;
+  margin:32px 0;
+}
+
+.point{
+  display:flex;
+  gap:13px;
+}
+
+.point i{
+  width:34px;
+  height:34px;
+  flex:none;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  border-radius:50%;
+  color:var(--lime);
+  font-size:.65rem;
+  font-style:normal;
+}
+
+.point b{
+  font-size:.78rem;
+}
+
+.point span{
+  display:block;
+  margin-top:4px;
+  color:#817b73;
+  font-size:.66rem;
+  line-height:1.5;
+}
+
+/* SWAP */
+
+.swap{
+  background:#191613;
+}
+
+.swap-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:70px;
+  align-items:center;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+  margin-top:32px;
+}
+
+.step{
+  padding:20px;
+  border:1px solid #393229;
+  border-radius:19px;
+  background:#211d18;
+}
+
+.step small{
+  color:var(--lime);
+  font-weight:700;
+}
+
+.step b{
+  display:block;
+  margin-top:10px;
+  font-size:.76rem;
+}
+
+.step p{
+  margin-top:5px;
+  color:#817b72;
+  font-size:.64rem;
+  line-height:1.5;
+}
+
+.swap-art{
+  height:470px;
+  position:relative;
+  display:grid;
+  place-items:center;
+}
+
+.swap-art:before{
+  content:"";
+  position:absolute;
+  width:75%;
+  aspect-ratio:1;
+  border:1px solid #c8c79326;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    #35369c47,
+    transparent 65%
+  );
+}
+
+.swap-art img{
+  position:relative;
+  z-index:1;
+  width:90%;
+  height:90%;
+  object-fit:contain;
+}
+
+/* BRAND STANDARD */
+
+.standard-art{
+  background:
+    radial-gradient(
+      circle at center,
+      #35369c50,
+      transparent 60%
+    ),
+    #181512;
+}
+
+.standard-art img{
+  object-fit:contain;
+  padding:20%;
+}
+
+/* DELIVERY */
+
+.delivery{
+  text-align:center;
+  overflow:hidden;
+}
+
+.delivery .sub{
+  margin-inline:auto;
+}
+
+.bigword{
+  margin:38px 0;
+  color:#2b2721;
+  font-size:clamp(4rem,14vw,11rem);
+  font-weight:800;
+  line-height:.8;
+  letter-spacing:-.1em;
+  text-shadow:1px 1px 0 #3a342c;
+}
+
+.countries{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:25px;
+}
+
+.country{
+  padding:10px 16px;
+  border:1px solid #3d362e;
+  border-radius:999px;
+  color:#aaa49a;
+  font-size:.68rem;
+}
+
+.country b{
+  color:white;
+}
+
+/* CTA */
+
+.cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  padding:40px;
+  border:1px solid #c8c79333;
+  border-radius:30px;
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      #35369c3b,
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #2d2730,
+      #24201A
+    );
+}
+
+.cta h2{
+  font-size:clamp(2rem,5vw,4rem);
+  line-height:.93;
+  letter-spacing:-.06em;
+}
+
+/* FOOTER */
+
+footer{
+  padding:48px 0 23px;
+  border-top:1px solid #353027;
+  color:#777169;
+}
+
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.footer-links{
+  display:flex;
+  gap:21px;
+  font-size:.68rem;
+}
+
+.copy{
+  margin-top:50px;
+  color:#57524b;
+  font-size:.6rem;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  nav{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    background-position:62% center;
+  }
+
+  .hero-float{
+    width:75px;
+    border-radius:14px;
+  }
+
+  .trust-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-item:nth-child(2){
+    border-right:0;
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .feature-grid,
+  .swap-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .feature-art{
+    min-height:420px;
+  }
+}
+
+@media(max-width:560px){
+
+  .section{
+    padding:75px 0;
+  }
+
+  .hero-logo{
+    width:160px;
+  }
+
+  .script{
+    font-size:clamp(4rem,20vw,6rem);
+  }
+
+  .hero h1{
+    font-size:1.65rem;
+  }
+
+  .hero-meta{
+    gap:15px;
+    margin-top:30px;
+  }
+
+  .f1{
+    right:-18px;
+  }
+
+  .f2{
+    left:-20px;
+  }
+
+  .products{
+    gap:9px;
+  }
+
+  .product{
+    border-radius:17px;
+  }
+
+  .product-img{
+    height:185px;
+    padding:9px;
+  }
+
+  .product-body{
+    padding:12px;
+  }
+
+  .product h3{
+    font-size:.76rem;
+  }
+
+  .product p{
+    font-size:.59rem;
+  }
+
+  .product-foot{
+    display:block;
+  }
+
+  .price{
+    display:block;
+    margin-bottom:8px;
+  }
+
+  .product-btn{
+    width:100%;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .feature-art{
+    min-height:330px;
+  }
+
+  .cta{
+    display:block;
+    padding:28px;
+  }
+
+  .cta .btn{
+    margin-top:21px;
+  }
+
+  .footer-grid{
+    display:block;
+  }
+
+  .footer-links{
+    flex-wrap:wrap;
+    margin-top:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<div class="container nav">
+
+<a class="brand" href="#">
+<img src="assets/logo.webp" alt="Brush Apple">
+<span>BRUSH APPLE</span>
+</a>
+
+<nav>
+<a href="#devices">Devices</a>
+<a href="#brands">Brands</a>
+<a href="#swap">Swap</a>
+<a href="#standard">Standard</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<button class="menu">☰</button>
+
+</div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<img
+class="hero-float f1"
+src="assets/phone_hero_background.webp"
+alt=""
+>
+
+<img
+class="hero-float f2"
+src="assets/logo.webp"
+alt=""
+>
+
+<div class="glow"></div>
+
+<div class="container hero-content">
+
+<div class="eyebrow">
+Premium Phones • Gadgets • Upgrades
+</div>
+
+<img
+class="hero-logo"
+src="assets/logo.webp"
+alt="Brush Apple"
+>
+
+<div class="script">
+Brush<span>.</span>
+</div>
+
+<h1>
+Your next device,
+<span class="gold">plugged in.</span>
+</h1>
+
+<p>
+Explore iPhones, Android devices and premium tech
+with a clean, direct buying experience built around
+the device you actually want.
+</p>
+
+<div class="actions">
+
+<a
+class="btn btn-main"
+href="#devices"
+>
+Explore Devices
+</a>
+
+<a
+class="btn btn-dark"
+href="https://wa.me/YOURNUMBER"
+target="_blank"
+>
+WhatsApp Us
+</a>
+
+</div>
+
+<div class="hero-meta">
+
+<div>
+<strong>iPhone</strong>
+<span>Multiple generations</span>
+</div>
+
+<div>
+<strong>Android</strong>
+<span>Samsung • Pixel</span>
+</div>
+
+<div>
+<strong>Upgrade</strong>
+<span>Swap your device</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- TRUST -->
+
+<section class="trust">
+
+<div class="container trust-grid">
+
+<div class="trust-item">
+<b>Wide Selection</b>
+<span>
+From classic iPhones to current models
+</span>
+</div>
+
+<div class="trust-item">
+<b>Premium Devices</b>
+<span>
+Phones and modern mobile tech
+</span>
+</div>
+
+<div class="trust-item">
+<b>Swap & Upgrade</b>
+<span>
+Move into your next device
+</span>
+</div>
+
+<div class="trust-item">
+<b>Direct Support</b>
+<span>
+Ask about stock and availability
+</span>
+</div>
+
+</div>
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="section" id="devices">
+
+<div class="container">
+
+<div class="catalog-head">
+
+<div class="eyebrow">
+The Collection
+</div>
+
+<h2 class="title">
+Choose your<br>
+<span class="gold">next plug.</span>
+</h2>
+
+<p class="sub">
+Browse the current device collection.
+Product pricing can be confirmed directly
+with Brush Apple.
+</p>
+
+</div>
+
+
+<div class="filters">
+
+<button class="filter active" data-filter="all">
+All Devices
+</button>
+
+<button class="filter" data-filter="iphone">
+iPhone
+</button>
+
+<button class="filter" data-filter="pro">
+Pro Series
+</button>
+
+<button class="filter" data-filter="android">
+Android
+</button>
+
+</div>
+
+
+<div class="products" id="productGrid"></div>
+
+</div>
+</section>
+
+
+<!-- BRANDS -->
+
+<section class="section feature" id="brands">
+
+<div class="container feature-grid">
+
+<div class="feature-art">
+
+<img
+src="assets/phone_hero_background.webp"
+alt="Featured phone"
+>
+
+</div>
+
+
+<div>
+
+<div class="eyebrow">
+More Than iPhone
+</div>
+
+<h2 class="title">
+Different brands.<br>
+<span class="gold">One destination.</span>
+</h2>
+
+<p class="sub">
+The collection goes beyond Apple, bringing together
+Samsung, Google Pixel and foldable devices for
+customers who want options.
+</p>
+
+<div class="points">
+
+<div class="point">
+
+<i>01</i>
+
+<div>
+
+<b>Apple</b>
+
+<span>
+iPhone generations from the classics
+through current Pro models.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<i>02</i>
+
+<div>
+
+<b>Samsung</b>
+
+<span>
+Galaxy S-series and Fold devices.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<i>03</i>
+
+<div>
+
+<b>Google Pixel</b>
+
+<span>
+Pixel devices across several generations
+and finishes.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<a
+class="btn btn-main"
+href="#devices"
+>
+View Collection
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- SWAP -->
+
+<section class="section swap" id="swap">
+
+<div class="container swap-grid">
+
+<div>
+
+<div class="eyebrow">
+Swap & Upgrade
+</div>
+
+<h2 class="title">
+Move from your<br>
+old <span class="gold">device.</span>
+</h2>
+
+<p class="sub">
+Ready for something newer?
+Start the conversation with your current device
+and the model you want next.
+</p>
+
+
+<div class="steps">
+
+<div class="step">
+<small>01</small>
+<b>Tell us your device</b>
+<p>
+Model, storage, colour and condition.
+</p>
+</div>
+
+<div class="step">
+<small>02</small>
+<b>Discuss your options</b>
+<p>
+Ask about valuation and available devices.
+</p>
+</div>
+
+<div class="step">
+<small>03</small>
+<b>Choose your upgrade</b>
+<p>
+Find a device that fits your needs.
+</p>
+</div>
+
+<div class="step">
+<small>04</small>
+<b>Make the move</b>
+<p>
+Complete your swap and step into the next one.
+</p>
+</div>
+
+</div>
+
+
+<a
+class="btn btn-main"
+style="margin-top:24px"
+href="https://wa.me/YOURNUMBER"
+target="_blank"
+>
+Start a Swap
+</a>
+
+</div>
+
+
+<div class="swap-art">
+
+<img
+src="assets/phone_hero_background.webp"
+alt="Phone upgrade"
+>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- STANDARD -->
+
+<section class="section" id="standard">
+
+<div class="container feature-grid">
+
+<div>
+
+<div class="eyebrow">
+The Brush Apple Standard
+</div>
+
+<h2 class="title">
+Know what<br>
+you're <span class="gold">buying.</span>
+</h2>
+
+<p class="sub">
+Before you commit, ask for the details that matter.
+Exact model, storage, condition, colour and availability
+should be clear.
+</p>
+
+<div class="points">
+
+<div class="point">
+
+<i>✓</i>
+
+<div>
+
+<b>Exact Model</b>
+
+<span>
+Know precisely which generation and variant
+you're getting.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<i>✓</i>
+
+<div>
+
+<b>Condition</b>
+
+<span>
+Understand the physical state of the device
+before purchase.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<i>✓</i>
+
+<div>
+
+<b>Direct Communication</b>
+
+<span>
+Get product-specific answers before making
+the deal.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="feature-art standard-art">
+
+<img
+src="assets/logo.webp"
+alt="Brush Apple"
+>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CLOSING -->
+
+<section class="section delivery">
+
+<div class="container">
+
+<div class="eyebrow">
+Stay Current
+</div>
+
+<h2 class="title">
+Stay current.<br>
+<span class="gold">Stay connected.</span>
+</h2>
+
+<div class="bigword">
+BRUSH
+</div>
+
+<p class="sub">
+Your device is how you work, create, communicate
+and move. Brush Apple keeps the next upgrade
+within reach.
+</p>
+
+<div class="countries">
+
+<div class="country">
+<b>iPhone</b>
+</div>
+
+<div class="country">
+<b>Samsung</b>
+</div>
+
+<div class="country">
+<b>Google Pixel</b>
+</div>
+
+<div class="country">
+<b>Foldables</b>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CTA -->
+
+<section class="section" id="contact">
+
+<div class="container">
+
+<div class="cta">
+
+<div>
+
+<div class="eyebrow">
+Ready for the next one?
+</div>
+
+<h2>
+Find your<br>
+<span class="gold">device.</span>
+</h2>
+
+</div>
+
+<a
+class="btn btn-main"
+href="https://wa.me/YOURNUMBER"
+target="_blank"
+>
+Chat on WhatsApp ↗
+</a>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="brand">
+
+<img
+src="assets/logo.webp"
+alt="Brush Apple"
+>
+
+<span>
+BRUSH APPLE
+</span>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="#devices">Devices</a>
+<a href="#brands">Brands</a>
+<a href="#swap">Swap</a>
+<a href="#standard">Standard</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+
+<div class="copy">
+
+© <span id="year"></span>
+Brush Apple. All rights reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+const products = [
+
+["iPhone 8+ Black","8+_black.jpg","iphone"],
+["iPhone 8+ Front","8+_front.jpg","iphone"],
+["iPhone 8+ Gold","8+_gold.jpg","iphone"],
+["iPhone 8+ Red","8+_red.jpg","iphone"],
+
+["iPhone X Gold","x_gold.jpg","iphone"],
+["iPhone X White","x_white.jpg","iphone"],
+
+["iPhone 11","11_back.jpg","iphone"],
+["iPhone 11 Pro Max","11_promax.jpg","pro"],
+["iPhone 11 Pro Max Gold","11_promax_gold.jpg","pro"],
+["iPhone 11 White","11_white.jpg","iphone"],
+
+["iPhone 12 Pro Max","12_promax.jpg","pro"],
+["iPhone 12 Pro Max Back","12_promax_back.jpg","pro"],
+
+["iPhone 13","13_back.jpg","iphone"],
+["iPhone 13 Pro","13_pro.jpg","pro"],
+["iPhone 13 Pro Back","13_pro_back.jpg","pro"],
+["iPhone 13 Pro Front","13_pro_front.jpg","pro"],
+["iPhone 13 White","13_white.jpg","iphone"],
+
+["iPhone 14 Pro","14_pro.jpg","pro"],
+["iPhone 14 Pro Front","14_pro_front.jpg","pro"],
+["iPhone 14 Pro Gold","14_pro_gold.jpg","pro"],
+["iPhone 14 Pro Purple","14_pro_purple.jpg","pro"],
+["iPhone 14 Pro Side","14_pro_side.jpg","pro"],
+
+["iPhone 15","15.jpg","iphone"],
+["iPhone 15 Black","15_black.jpg","iphone"],
+["iPhone 15 Pink","15_pink.jpg","iphone"],
+["iPhone 15 Pro","15_pro.jpg","pro"],
+["iPhone 15 Pro Detail","15_pro_detail.jpg","pro"],
+["iPhone 15 Pro White","15_pro_white.jpg","pro"],
+
+["iPhone 16","16.jpg","iphone"],
+["iPhone 16 Blue","16_blue.jpg","iphone"],
+
+["iPhone 17","17.jpg","iphone"],
+
+["iPhone 18 Pro","18_pro.jpg","pro"],
+["iPhone 18 Pro Blue","18_pro_blue.jpg","pro"],
+
+["Samsung S21 5G","s21_5G.jpg","android"],
+["Samsung S21","s21_arrays.jpg","android"],
+["Samsung S22 Ultra","s22_ultra.jpg","android"],
+["Samsung S24 Ultra","s24_ultra_back.jpg","android"],
+["Samsung Fold 4","samsung_fold4.jpg","android"],
+["Samsung Fold 4 Front","samsung_fold4_front.jpg","android"],
+
+["Google Pixel 7","pixel_7.jpg","android"],
+["Google Pixel 8","pixel_8.jpg","android"],
+["Google Pixel 9","pixel_9.jpg","android"],
+["Google Pixel 9 Pink","pixel_9_pink.jpg","android"],
+["Google Pixel 10","pixel_10.jpg","android"]
+
+];
+
+
+const grid = document.getElementById("productGrid");
+
+
+function whatsapp(product){
+
+  return "https://wa.me/YOURNUMBER?text=" +
+  encodeURIComponent(
+    "Hello Brush Apple, I'm interested in the " +
+    product +
+    ". Please send me the price, condition, storage and availability."
+  );
+
+}
+
+
+function renderProducts(filter="all"){
+
+  grid.innerHTML = products
+
+    .filter(product =>
+      filter === "all" ||
+      product[2] === filter
+    )
+
+    .map(product => {
+
+      const name = product[0];
+      const image = product[1];
+      const type = product[2];
+
+      return `
+
+      <article class="product">
+
+        <div class="product-img">
+
+          <span class="tag">
+            ${
+              type === "pro"
+              ? "PRO"
+              : type === "android"
+              ? "ANDROID"
+              : "IPHONE"
+            }
+          </span>
+
+          <img
+            src="assets/${image}"
+            alt="${name}"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="product-body">
+
+          <h3>
+            ${name}
+          </h3>
+
+          <p>
+            Ask for price • condition • availability
+          </p>
+
+          <div class="product-foot">
+
+            <span class="price">
+              DM FOR PRICE
+            </span>
+
+            <a
+              class="btn btn-main product-btn"
+              href="${whatsapp(name)}"
+              target="_blank"
+            >
+              Ask Now
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      `;
+
+    })
+
+    .join("");
+
+}
+
+
+document
+.querySelector(".filters")
+.addEventListener("click",event=>{
+
+  const button =
+    event.target.closest(".filter");
+
+  if(!button)return;
+
+  document
+    .querySelectorAll(".filter")
+    .forEach(
+      item => item.classList.remove("active")
+    );
+
+  button.classList.add("active");
+
+  renderProducts(
+    button.dataset.filter
+  );
+
+});
+
+
+window.addEventListener("scroll",()=>{
+
+  document
+    .getElementById("header")
+    .classList.toggle(
+      "scrolled",
+      window.scrollY > 30
+    );
+
+});
+
+
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+renderProducts();
+
+</script> 
+
+  
